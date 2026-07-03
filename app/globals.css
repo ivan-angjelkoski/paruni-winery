@@ -1,26 +1,165 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/*  Paruni Winery — cold highland palette + cartographic type system   */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  /* Cold highland dusk — deliberately not warm cream/terracotta */
+  --color-night: #14161c; /* cold slate-blue near-black — the summit / cellar night */
+  --color-stone: #e7e8e2; /* cool snow-shadow off-white — primary ground */
+  --color-stone-deep: #dcddd4; /* a step down for plates / fills */
+  --color-slate: #33383f; /* graphite ink */
+  --color-slate-soft: #5a616a; /* muted ink for secondary text */
+  --color-sage: #97a09b; /* cold lichen air — contour lines + atmosphere */
+  --color-wine: #5e2742; /* cool plum/mulberry — the single accent */
+  --color-wine-bright: #7e3459; /* hover state for the accent */
+  --color-frost: #c8c6bd; /* hairline dividers */
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-instrument), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-stone);
+  --foreground: var(--color-slate);
+  --rail-width: 4.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+
+* {
+  min-width: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-wine);
+  color: var(--color-stone);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Type scale — Fraunces display, high optical size, light weights    */
+/* ------------------------------------------------------------------ */
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(3.25rem, 1.6rem + 7vw, 8.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 340;
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+/* Cartographic utility label — the map/altitude vernacular */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-slate-soft);
+}
+
+.hairline {
+  border: 0;
+  border-top: 1px solid var(--color-frost);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Motion — draw-in contours, quiet reveals                           */
+/* ------------------------------------------------------------------ */
+
+@keyframes contour-draw {
+  from {
+    stroke-dashoffset: var(--dash, 2000);
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 1;
+}
+
+.reveal.is-in {
+  animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Keyboard focus — visible, in the brand accent */
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-wine);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+  }
 }
