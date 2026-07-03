@@ -38,28 +38,6 @@ export default function AltitudeRail() {
     };
   }, []);
 
-  // Reveal-on-enter for any .reveal element on the page.
-  useEffect(() => {
-    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    if (!("IntersectionObserver" in window) || els.length === 0) {
-      els.forEach((el) => el.classList.add("is-in"));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-in");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.1 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-
   const current = Math.round(BASE_M + progress * (SUMMIT_M - BASE_M));
 
   return (

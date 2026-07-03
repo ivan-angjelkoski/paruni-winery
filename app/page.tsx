@@ -180,10 +180,7 @@ export default function Home() {
           {/*  Hero — 512 M                                            */}
           {/* -------------------------------------------------------- */}
           <section className="relative overflow-hidden">
-            <Contours
-              draw
-              className="pointer-events-none absolute -right-[18%] -top-[22%] h-[130%] w-[75%] opacity-70 sm:opacity-100"
-            />
+            <Contours className="pointer-events-none absolute -right-[18%] -top-[22%] h-[130%] w-[75%] opacity-70 sm:opacity-100" />
             <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 pb-20 pt-16 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pb-28 lg:pt-24">
               <div className="flex flex-col justify-center">
                 <div className="flex items-center gap-3">
@@ -235,11 +232,11 @@ export default function Home() {
           <section className="border-t border-frost/60">
             <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
               <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:gap-16">
-                <p className="reveal font-display text-2xl font-light leading-snug text-slate lg:text-[1.75rem]">
+                <p className="font-display text-2xl font-light leading-snug text-slate lg:text-[1.75rem]">
                   At Paruni, wine is more than a product. It is a reflection of
                   place, climate, heritage, and time.
                 </p>
-                <div className="reveal space-y-5 text-slate-soft">
+                <div className="space-y-5 text-slate-soft">
                   <p>
                     From carefully selected grapes to small-batch production, every
                     detail is guided by precision and restraint.
@@ -260,7 +257,7 @@ export default function Home() {
           <section id="about" className="border-t border-frost/60 scroll-mt-20">
             <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
               <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-                <div className="reveal order-2 lg:order-1">
+                <div className="order-2 lg:order-1">
                   <PhotoPlate
                     src={IMAGES.tastingRoom}
                     alt="A Paruni host presenting rosé inside the tasting room"
@@ -270,7 +267,7 @@ export default function Home() {
                     position="54% 42%"
                   />
                 </div>
-                <div className="reveal order-1 flex flex-col justify-center lg:order-2">
+                <div className="order-1 flex flex-col justify-center lg:order-2">
                   <Eyebrow m="640" label="About" />
                   <h2 className="display-lg mt-6 text-slate">
                     A winery rooted in Gostivar
@@ -300,7 +297,7 @@ export default function Home() {
           <section className="relative overflow-hidden border-t border-frost/60 bg-stone-deep/50">
             <Contours className="pointer-events-none absolute -left-[10%] top-1/2 h-[180%] w-[40%] -translate-y-1/2 opacity-60" rings={7} peak={false} />
             <div className="relative mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:py-32">
-              <div className="reveal mx-auto max-w-3xl text-center">
+              <div className="mx-auto max-w-3xl text-center">
                 <Eyebrow m="780" label="Philosophy" />
                 <h2 className="display-lg mt-6 text-slate [&>*]:inline">
                   Crafted with patience.
@@ -323,7 +320,7 @@ export default function Home() {
           {/* -------------------------------------------------------- */}
           <section id="collection" className="border-t border-frost/60 scroll-mt-20">
             <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
-              <div className="reveal flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <Eyebrow m="1180" label="The Collection" />
                   <h2 className="display-lg mt-6 text-slate">Our collection</h2>
@@ -338,7 +335,7 @@ export default function Home() {
                 {WINES.map((w, i) => (
                   <li
                     key={w.name}
-                    className="reveal grid grid-cols-1 gap-6 border-t border-frost/70 py-10 md:grid-cols-[0.3fr_0.7fr] md:gap-12 md:py-12"
+                    className="grid grid-cols-1 gap-6 border-t border-frost/70 py-10 md:grid-cols-[0.3fr_0.7fr] md:gap-12 md:py-12"
                   >
                     <div className={`${i % 2 === 1 ? "md:order-2" : ""}`}>
                       <PhotoPlate
@@ -396,7 +393,7 @@ export default function Home() {
           {/* -------------------------------------------------------- */}
           <section id="visit" className="border-t border-frost/60 bg-stone-deep/50 scroll-mt-20">
             <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
-              <div className="reveal grid grid-cols-1 gap-10 lg:grid-cols-[0.55fr_0.45fr] lg:gap-16">
+              <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.55fr_0.45fr] lg:gap-16">
                 <div className="flex flex-col justify-center">
                   <Eyebrow m="1690" label="Visit" />
                   <h2 className="display-lg mt-6 text-slate">Visit Paruni</h2>
@@ -431,7 +428,7 @@ export default function Home() {
                 {TASTINGS.map((t, i) => (
                   <article
                     key={t.title}
-                    className="reveal flex flex-col gap-4 bg-stone p-8 transition-colors duration-300 hover:bg-stone-deep"
+                    className="flex flex-col gap-4 bg-stone p-8 transition-colors duration-300 hover:bg-stone-deep"
                   >
                     <PhotoPlate
                       src={i === 1 ? IMAGES.reserveRed : IMAGES.tastingRoom}
@@ -458,7 +455,7 @@ export default function Home() {
             <Contours className="pointer-events-none absolute -right-[8%] -bottom-[40%] h-[160%] w-[45%] opacity-60" rings={8} peak={false} />
             <div className="relative mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
               <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-                <div className="reveal flex flex-col justify-center">
+                <div className="flex flex-col justify-center">
                   <Eyebrow m="1900" label="The Region" />
                   <h2 className="display-lg mt-6 text-slate">
                     The landscape behind the wine
@@ -476,7 +473,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="reveal">
+                <div>
                   <PhotoPlate
                     src={IMAGES.reserveRed}
                     alt="Paruni bottle label with a mountain-line illustration"
@@ -495,7 +492,7 @@ export default function Home() {
           {/* -------------------------------------------------------- */}
           <section className="border-t border-frost/60 bg-stone-deep/50">
             <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
-              <div className="reveal">
+              <div>
                 <Eyebrow m="2050" label="At the Table" />
                 <h2 className="display-lg mt-6 text-slate">Pairing notes</h2>
               </div>
@@ -514,7 +511,7 @@ export default function Home() {
                     v: "Aperitifs, summer plates, and light, delicate desserts.",
                   },
                 ].map((p) => (
-                  <div key={p.k} className="reveal border-t border-frost/70 pt-5">
+                  <div key={p.k} className="border-t border-frost/70 pt-5">
                     <h3 className="font-display text-lg font-medium text-wine">
                       {p.k}
                     </h3>
@@ -530,7 +527,7 @@ export default function Home() {
           {/* -------------------------------------------------------- */}
           <section id="events" className="border-t border-frost/60 scroll-mt-20">
             <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
-              <div className="reveal grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.6fr_0.4fr]">
+              <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.6fr_0.4fr]">
                 <div>
                   <Eyebrow m="2280" label="Gatherings" />
                   <h2 className="display-lg mt-6 text-slate">
@@ -555,7 +552,7 @@ export default function Home() {
           {/* -------------------------------------------------------- */}
           <section className="border-t border-frost/60 bg-stone-deep/50">
             <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
-              <div className="reveal">
+              <div>
                 <Eyebrow m="2480" label="Guest Voices" />
                 <h2 className="display-lg mt-6 text-slate">What guests say</h2>
               </div>
@@ -574,7 +571,7 @@ export default function Home() {
                     a: "Tasting guest",
                   },
                 ].map((t, i) => (
-                  <figure key={i} className="reveal flex flex-col">
+                  <figure key={i} className="flex flex-col">
                     <span aria-hidden className="font-display text-4xl leading-none text-wine/40">
                       &ldquo;
                     </span>
@@ -597,7 +594,7 @@ export default function Home() {
             <Contours className="pointer-events-none absolute -left-[6%] -top-[30%] h-[150%] w-[42%] opacity-30" rings={9} />
             <div className="relative mx-auto max-w-6xl px-6 sm:px-10">
               {/* Newsletter */}
-              <div className="reveal border-b border-white/10 py-20 lg:py-28">
+              <div className="border-b border-white/10 py-20 lg:py-28">
                 <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.5fr_0.5fr] lg:items-center">
                   <div>
                     <Eyebrow m="2700" label="Newsletter" dark />
@@ -634,7 +631,7 @@ export default function Home() {
               </div>
 
               {/* Contact */}
-              <div id="contact" className="reveal scroll-mt-20 py-20 lg:py-28">
+              <div id="contact" className="scroll-mt-20 py-20 lg:py-28">
                 <Eyebrow m="2748" label="Visit Us · Summit" dark />
                 <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-3">
                   <div className="md:col-span-1">

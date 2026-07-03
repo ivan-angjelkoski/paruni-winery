@@ -7,7 +7,6 @@
 
 type ContoursProps = {
   className?: string;
-  draw?: boolean;
   rings?: number;
   peak?: boolean;
 };
@@ -19,7 +18,6 @@ const BASE_PATH =
 
 export default function Contours({
   className,
-  draw = false,
   rings = 9,
   peak = true,
 }: ContoursProps) {
@@ -45,37 +43,12 @@ export default function Contours({
             stroke="var(--color-sage)"
             strokeWidth={0.9 / s}
             strokeLinecap="round"
-            pathLength={1}
-            style={
-              draw
-                ? {
-                    ["--dash" as string]: 1,
-                    strokeDasharray: 1,
-                    animation: `contour-draw 2.4s cubic-bezier(0.22,1,0.36,1) forwards`,
-                    animationDelay: `${0.15 + i * 0.12}s`,
-                    opacity: 0,
-                  }
-                : { opacity: 0.5 }
-            }
+            style={{ opacity: 0.5 }}
           />
         );
       })}
       {peak && (
-        <circle
-          cx={300}
-          cy={300}
-          r={2.4}
-          fill="var(--color-wine)"
-          style={
-            draw
-              ? {
-                  animation: "rise-in 0.8s ease forwards",
-                  animationDelay: `${0.15 + rings * 0.12}s`,
-                  opacity: 0,
-                }
-              : undefined
-          }
-        />
+        <circle cx={300} cy={300} r={2.4} fill="var(--color-wine)" />
       )}
     </svg>
   );
