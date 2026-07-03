@@ -69,8 +69,8 @@ body {
   font-family: var(--font-display);
   font-optical-sizing: auto;
   font-weight: 300;
-  font-size: clamp(3.25rem, 1.6rem + 7vw, 8.5rem);
-  line-height: 0.94;
+  font-size: clamp(2.75rem, 1.4rem + 4.6vw, 6.5rem);
+  line-height: 0.98;
   letter-spacing: -0.02em;
 }
 

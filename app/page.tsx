@@ -211,14 +211,14 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex items-end">
+              <div className="flex items-center">
                 <PhotoPlate
                   src={IMAGES.reserveRed}
                   alt="Paruni Reserve Red bottle in the winery cellar"
                   caption="RESERVE RED"
                   meta="THE CELLAR"
                   ratio="3 / 4"
-                  className="w-full"
+                  className="mx-auto w-full max-w-[26rem]"
                   position="50% 42%"
                   priority
                 />
