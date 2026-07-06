@@ -119,9 +119,8 @@ const TASTINGS = [
 ];
 
 const IMAGES = {
-  reserveRed:
-    "/ChatGPT%20Image%20Jul%203%2C%202026%2C%2005_39_06%20PM%20%281%29.png",
-  tastingRoom: "/image-9.png",
+  reserveRed: "/image-1.png",
+  tastingRoom: "/image-2.png",
 };
 
 /* ------------------------------------------------------------------ */
